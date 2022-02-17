@@ -1,6 +1,12 @@
 var express = require("express");
+const cors = require("cors");
 const app = express();
 
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.listen(process.env.PORT || 5020);
 
 console.log("5020번 에서 작동중");
