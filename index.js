@@ -1,7 +1,7 @@
 var express = require("express");
 const app = express();
 
-app.listen(5020);
+app.listen(process.env.PORT || 5020);
 
 console.log("5020번 에서 작동중");
 
