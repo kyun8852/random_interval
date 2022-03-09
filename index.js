@@ -1,6 +1,10 @@
 var express = require("express");
 const cors = require("cors");
 const app = express();
+var moment = require("moment");
+
+require("moment-timezone");
+moment.tz.setDefault("Asia/Seoul");
 
 const corsOptions = {
   origin: "*",
@@ -13,19 +17,6 @@ app.get("/", (req, res) => {
   function randomNumber(min, max) {
     return Math.random() * (max - min) + min;
   }
-  let date_ob = new Date();
-
-  let date = ("0" + date_ob.getDate()).slice(-2);
-
-  let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-
-  let year = date_ob.getFullYear();
-
-  let hours = date_ob.getHours();
-
-  let minutes = date_ob.getMinutes();
-
-  let seconds = date_ob.getSeconds();
 
   const ID1_Load_Vol = randomNumber(400, 450).toFixed(0);
   const ID2_Load_Vol = randomNumber(550, 600).toFixed(0);
@@ -49,8 +40,8 @@ app.get("/", (req, res) => {
     (parseInt(ID1_RSSI) + parseInt(ID2_RSSI) + parseInt(ID3_RSSI)) / 3;
 
   const firstORD = {
-    Date: year + "-" + month + "-" + date,
-    Time: hours + 9 + ":" + minutes + ":" + seconds,
+    Date: moment().format("YYYY-MM-DD"),
+    Time: moment().format("HH:mm:ss"),
     ID1_Load_VOL: ID1_Load_Vol,
     ID1_MCU_Temp: ID1_MCU_Temp,
     ID1_RSSI: ID1_RSSI,
