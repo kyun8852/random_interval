@@ -46,7 +46,7 @@ app.get("/", (req, res) => {
     (parseInt(ID1_MCU_Temp) + parseInt(ID2_MCU_Temp) + parseInt(ID3_MCU_Temp)) /
     3;
   const AVG_RSSI =
-    parseInt(ID1_RSSI) + parseInt(ID2_RSSI) + parseInt(ID3_RSSI) / 3;
+    (parseInt(ID1_RSSI) + parseInt(ID2_RSSI) + parseInt(ID3_RSSI)) / 3;
 
   const firstORD = {
     Date: year + "-" + month + "-" + date,
