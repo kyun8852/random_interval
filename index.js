@@ -27,24 +27,49 @@ app.get("/", (req, res) => {
 
   let seconds = date_ob.getSeconds();
 
-  res.send([
-    {
-      Date: year + "-" + month + "-" + date,
-      Time: hours + 9 + ":" + minutes + ":" + seconds,
-      ID1_Load_VOL: randomNumber(400, 450).toFixed(0),
-      ID1_MCU_Temp: randomNumber(22, 23).toFixed(1),
-      ID1_RSSI: randomNumber(45, 50).toFixed(0),
+  const ID1_Load_Vol = randomNumber(400, 450).toFixed(0);
+  const ID2_Load_Vol = randomNumber(550, 600).toFixed(0);
+  const ID3_Load_Vol = randomNumber(500, 520).toFixed(0);
 
-      ID2_Load_VOL: randomNumber(550, 600).toFixed(0),
-      ID2_MCU_Temp: randomNumber(24, 25).toFixed(1),
-      ID2_RSSI: randomNumber(50, 60).toFixed(0),
+  const ID1_MCU_Temp = randomNumber(22, 23).toFixed(1);
+  const ID2_MCU_Temp = randomNumber(24, 25).toFixed(1);
+  const ID3_MCU_Temp = randomNumber(23, 25).toFixed(1);
 
-      ID3_Load_VOL: randomNumber(500, 520).toFixed(0),
-      ID3_MCU_Temp: randomNumber(23, 25).toFixed(1),
-      ID3_RSSI: randomNumber(45, 60).toFixed(0),
+  const ID1_RSSI = randomNumber(45, 50).toFixed(0);
+  const ID2_RSSI = randomNumber(50, 60).toFixed(0);
+  const ID3_RSSI = randomNumber(45, 60).toFixed(0);
 
-      weather_hazard: randomNumber(1, 2).toFixed(0),
-      Risk_of_collision: randomNumber(8, 10).toFixed(0),
-    },
-  ]);
+  const AVG_Load_VOL =
+    (parseInt(ID1_Load_Vol) + parseInt(ID2_Load_Vol) + parseInt(ID3_Load_Vol)) /
+    3;
+  const AVG_MCU_Temp =
+    (parseInt(ID1_MCU_Temp) + parseInt(ID2_MCU_Temp) + parseInt(ID3_MCU_Temp)) /
+    3;
+  const AVG_RSSI =
+    parseInt(ID1_RSSI) + parseInt(ID2_RSSI) + parseInt(ID3_RSSI) / 3;
+
+  const firstORD = {
+    Date: year + "-" + month + "-" + date,
+    Time: hours + 9 + ":" + minutes + ":" + seconds,
+    ID1_Load_VOL: ID1_Load_Vol,
+    ID1_MCU_Temp: ID1_MCU_Temp,
+    ID1_RSSI: ID1_RSSI,
+
+    ID2_Load_VOL: ID2_Load_Vol,
+    ID2_MCU_Temp: ID2_MCU_Temp,
+    ID2_RSSI: ID2_RSSI,
+
+    ID3_Load_VOL: ID3_Load_Vol,
+    ID3_MCU_Temp: ID3_MCU_Temp,
+    ID3_RSSI: ID3_RSSI,
+
+    weather_hazard: randomNumber(1, 2).toFixed(0),
+    Risk_of_collision: randomNumber(8, 10).toFixed(0),
+
+    AVG_Load_VOL: AVG_Load_VOL.toFixed(0),
+    AVG_MCU_Temp: AVG_MCU_Temp.toFixed(0),
+    AVG_RSSI: AVG_RSSI.toFixed(0),
+  };
+
+  res.send([firstORD]);
 });
