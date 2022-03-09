@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
   res.send([
     {
       Date: year + "-" + month + "-" + date,
-      Time: hours + ":" + minutes + ":" + seconds,
+      Time: hours + 9 + ":" + minutes + ":" + seconds,
       ID1_Load_VOL: randomNumber(400, 450).toFixed(0),
       ID1_MCU_Temp: randomNumber(22, 23).toFixed(1),
       ID1_RSSI: randomNumber(45, 50).toFixed(0),
