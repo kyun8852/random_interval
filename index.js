@@ -42,24 +42,24 @@ app.get("/", (req, res) => {
   const firstORD = {
     Date: moment().format("YYYY-MM-DD"),
     Time: moment().format("HH:mm:ss"),
-    ID_Load_VOL: ID1_Load_Vol,
-    ID_MCU_Temp: ID1_MCU_Temp,
-    ID_RSSI: ID1_RSSI,
+    ID1_Load_VOL: ID1_Load_Vol,
+    ID1_MCU_Temp: ID1_MCU_Temp,
+    ID1_RSSI: ID1_RSSI,
 
-    // ID2_Load_VOL: ID2_Load_Vol,
-    // ID2_MCU_Temp: ID2_MCU_Temp,
-    // ID2_RSSI: ID2_RSSI,
+    ID2_Load_VOL: ID2_Load_Vol,
+    ID2_MCU_Temp: ID2_MCU_Temp,
+    ID2_RSSI: ID2_RSSI,
 
-    // ID3_Load_VOL: ID3_Load_Vol,
-    // ID3_MCU_Temp: ID3_MCU_Temp,
-    // ID3_RSSI: ID3_RSSI,
+    ID3_Load_VOL: ID3_Load_Vol,
+    ID3_MCU_Temp: ID3_MCU_Temp,
+    ID3_RSSI: ID3_RSSI,
 
-    // weather_hazard: randomNumber(1, 2).toFixed(0),
-    // Risk_of_collision: randomNumber(8, 10).toFixed(0),
+    weather_hazard: randomNumber(1, 2).toFixed(0),
+    Risk_of_collision: randomNumber(8, 10).toFixed(0),
 
-    // AVG_Load_VOL: AVG_Load_VOL.toFixed(0),
-    // AVG_MCU_Temp: AVG_MCU_Temp.toFixed(0),
-    // AVG_RSSI: AVG_RSSI.toFixed(0),
+    AVG_Load_VOL: AVG_Load_VOL.toFixed(0),
+    AVG_MCU_Temp: AVG_MCU_Temp.toFixed(0),
+    AVG_RSSI: AVG_RSSI.toFixed(0),
   };
 
   res.send([firstORD]);
